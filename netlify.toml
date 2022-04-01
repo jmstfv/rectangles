@@ -25,16 +25,6 @@
   for = "/*"
 
   [headers.values]
-    Content-Security-Policy = '''
-      default-src 'none';
-      block-all-mixed-content;
-      base-uri 'self';
-      form-action 'self';
-      frame-ancestors 'none';
-      connect-src 'self';
-      script-src 'self';
-      style-src 'self';
-    '''
     Referrer-Policy = "strict-origin-when-cross-origin"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     X-Content-Type-Options = "nosniff"
