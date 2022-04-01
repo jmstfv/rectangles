@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rectangles</title>
+  <link rel="stylesheet" href="assets/base.css">
+  <script src="assets/voodoo.js" defer></script>
+  <link rel="canonical" href="https://rectangles.app/">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+  <meta name="description" content="Visualize your day as 144 rectangles, where each rectangle represents 10 minutes.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@jmstfv">
+  <meta name="twitter:image" content="https://rectangles.app/assets/apple-touch-icon.png">
+  <meta name="twitter:description" content="Visualize your day as 144 rectangles, where each rectangle represents 10 minutes.">
+  <meta name="twitter:title" content="Rectangles">
+</head>
+<body>
+  <main class="flex flex-wrap justify-around p-2">
+    <noscript>
+      Sorry pal but this won't work without a JavaScript. You are probably doing that for privacy reasons, and I do respect that. You can download this website, inspect the source code, and run it locally. Or, if you think this website is trustworthy enough, you can whitelist it in your browser or a script blocker. I don't have any third-party trackers on this website, so you will be safe here.
+    </noscript>
+    <section class="grid-container"></section>
+    <section>
+      <h1 class="border-b-3 mb-0">Rectangles</h1>
+      <p>There are 144 rectangles.</p>
+      <p>Each rectangle represents 10 minutes of your day.</p>
+      <div class="flex flex-wrap items-center">
+        <div class="grid-item bg-black m-1"></div>
+        <p>Time that has already passed today</p>
+      </div>
+      <div class="flex flex-wrap items-center">
+        <div class="grid-item m-1"></div>
+        <p>Time that you still have left today</p>
+      </div>
+      <div class="border-b-3">
+        <p>To put it into a perspective (hover over each item):</p>
+        <ul>
+          <li class="m-1 js-hover" title="0.82 rectangles - 8 minutes and 20 seconds" data-rectangles="0.82">A time for a sunlight to reach the Earth</li>
+          <li class="m-1 js-hover" title="30 rectangles - 5 hours" data-rectangles="30">Average psilocybin mushroom trip</li>
+          <li class="m-1 js-hover" title="48 rectangles - 8 hours" data-rectangles="48">Average workday</li>
+        </ul>
+      </div>
+      <div class="text-center">
+        <p><a href="about.html">Interested in nitty gritty?</a></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
