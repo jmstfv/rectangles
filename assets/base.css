@@ -39,6 +39,8 @@ a:hover {
 h1 {
   font-size: 5.2rem;
   line-height: 1.5;
+  font-weight: 800;
+  letter-spacing: -.025em;
 }
 
 ol,
