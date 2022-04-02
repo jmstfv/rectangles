@@ -34,19 +34,13 @@ const fillGrid = () => {
   lastUncoloredGridItem.style = `background: linear-gradient(to right, var(--green) ${remainderBlock}%, transparent 0%)`;
 }
 
-// Abandon hope all ye who enter here
-// TODO: refactor - this is needlessly complicated
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.js-hover').forEach(element => {
     const rectangles = Number(element.dataset.rectangles);
 
     element.addEventListener('mouseenter', () => {
       document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
-        if (index + 1 < Math.ceil(rectangles)) {
-          // don't use toggle because in some cases grid items might become uncolored (white)
-          element.classList.remove('bg-time-passed');
-          element.classList.add('bg-time-selected');
-        } else if (index + 1 == rectangles) {
+        if (index + 1 <= rectangles) {
           element.classList.remove('bg-time-passed');
           element.classList.add('bg-time-selected');
         } else if (index + 1 == Math.ceil(rectangles)) {
@@ -57,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     element.addEventListener('mouseleave', () => {
       const minutesPassed = minutesSinceMidnight();
-
       const fullBlocks = Math.floor(minutesPassed / 10);
 
       document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
@@ -69,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (index + 1 > fullBlocks) {
           element.classList.remove('bg-time-selected');
           element.classList.remove('bg-time-passed');
-
         }
       });
     });
@@ -78,5 +70,5 @@ document.addEventListener('DOMContentLoaded', () => {
   createGrid(12, 12, document.querySelector('.grid-container'));
 
   fillGrid();
-  setInterval(fillGrid, 5000);
+  setInterval(fillGrid, 4000);
 });
