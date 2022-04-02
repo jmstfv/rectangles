@@ -31,6 +31,8 @@ const fillGrid = () => {
   lastUncoloredGridItem.style = `background: linear-gradient(to right, #212426 ${remainderBlock}%, transparent 0%)`;
 }
 
+// Abandon hope all ye who enter here
+// TODO: refactor - this is needlessly complicated
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.js-hover').forEach(element => {
     const rectangles = Number(element.dataset.rectangles);
@@ -51,13 +53,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     element.addEventListener('mouseleave', () => {
+      const minutesPassed = minutesSinceMidnight();
+
+      const fullBlocks = Math.floor(minutesPassed / 10);
+
       document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
-        if (index + 1 <= rectangles) {
+        if (index + 1 <= fullBlocks) {
+          element.style = "background: transparent"
           element.classList.add('bg-black');
           element.classList.remove('bg-light-blue');
-          element.style = `background-color: #212426`
-        } else if (index + 1 == Math.ceil(rectangles)) {
-          element.style = `background-color: #212426`
+        }
+        else if (index + 1 > fullBlocks) {
+          element.classList.remove('bg-light-blue');
+          element.classList.remove('bg-black');
+
         }
       });
     });
