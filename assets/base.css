@@ -68,7 +68,7 @@ ul {
 }
 
 .grid-item {
-  border: .3rem solid var(--gray);
+  border: .25rem solid var(--gray);
   border-radius: 0.4rem;
   margin: .15rem;
   height: 4.5rem;
