@@ -23,6 +23,9 @@ const fillGrid = () => {
   document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
     if (index + 1 <= fullBlocks) {
       element.classList.add('bg-time-passed');
+    } else {
+      element.classList.remove('bg-time-passed');
+      element.style = 'background: transparent'
     }
   });
 
