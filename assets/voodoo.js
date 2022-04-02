@@ -22,13 +22,13 @@ const fillGrid = () => {
 
   document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
     if (index + 1 <= fullBlocks) {
-      element.classList.add('bg-black');
+      element.classList.add('bg-time-passed');
     }
   });
 
   const remainderBlock = (minutesPassed % 10) * 10;
-  const lastUncoloredGridItem = document.querySelector('.grid-item:not(.bg-black)');
-  lastUncoloredGridItem.style = `background: linear-gradient(to right, #2d3134 ${remainderBlock}%, transparent 0%)`;
+  const lastUncoloredGridItem = document.querySelector('.grid-item:not(.bg-time-passed)');
+  lastUncoloredGridItem.style = `background: linear-gradient(to right, var(--green) ${remainderBlock}%, transparent 0%)`;
 }
 
 // Abandon hope all ye who enter here
@@ -41,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
         if (index + 1 < Math.ceil(rectangles)) {
           // don't use toggle because in some cases grid items might become uncolored (white)
-          element.classList.remove('bg-black');
-          element.classList.add('bg-light-blue');
+          element.classList.remove('bg-time-passed');
+          element.classList.add('bg-time-selected');
         } else if (index + 1 == rectangles) {
-          element.classList.remove('bg-black');
-          element.classList.add('bg-light-blue');
+          element.classList.remove('bg-time-passed');
+          element.classList.add('bg-time-selected');
         } else if (index + 1 == Math.ceil(rectangles)) {
-          element.style = `background: linear-gradient(to right, #b4d8fd ${rectangles * 100}%, transparent 0%)`
+          element.style = `background: linear-gradient(to right, var(--blue) ${rectangles * 100}%, transparent 0%)`
         }
       });
     });
@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
         if (index + 1 <= fullBlocks) {
           element.style = "background: transparent"
-          element.classList.add('bg-black');
-          element.classList.remove('bg-light-blue');
+          element.classList.add('bg-time-passed');
+          element.classList.remove('bg-time-selected');
         }
         else if (index + 1 > fullBlocks) {
-          element.classList.remove('bg-light-blue');
-          element.classList.remove('bg-black');
+          element.classList.remove('bg-time-selected');
+          element.classList.remove('bg-time-passed');
 
         }
       });

@@ -1,3 +1,11 @@
+:root {
+  --blue: #a9d2ef;
+  --green: #cddfd1;
+  --black: #2d3134;
+  --gray: #a9aab1;
+  --beige: #fdf5e6;
+}
+
 *,
 *::before,
 *::after {
@@ -14,8 +22,8 @@ html {
 }
 
 body {
-  background-color: #fdf5e6;
-  color: #2d3134;
+  background-color: var(--beige);
+  color: var(--black);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   font-size: 1.8rem;
   font-weight: 400;
@@ -28,12 +36,6 @@ body {
 a {
   color: #6878a3;
   text-decoration: underline;
-}
-
-a:active,
-a:focus,
-a:hover {
-  color: #98a3c1
 }
 
 h1 {
@@ -66,7 +68,7 @@ ul {
 }
 
 .grid-item {
-  border: .3rem solid black;
+  border: .3rem solid var(--gray);
   border-radius: 0.4rem;
   margin: .15rem;
   height: 4.5rem;
@@ -81,9 +83,9 @@ ul {
 .items-center { align-items: center !important; }
 .justify-around { justify-content: space-around !important; }
 
-.bg-black { background-color: #2d3134 !important; }
+.bg-time-passed { background-color: var(--green) !important; }
 
-.bg-light-blue { background-color: #b4d8fd !important; }
+.bg-time-selected { background-color: var(--blue) !important; }
 
 .text-center { text-align: center; }
 
