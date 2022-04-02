@@ -67,8 +67,9 @@ ul {
 
 .grid-item {
   border: .3rem solid black;
-  height: 4.5rem;
+  border-radius: 0.4rem;
   margin: .15rem;
+  height: 4.5rem;
   width: 4.6rem;
   transition: all .5s ease-in;
 }
