@@ -28,7 +28,7 @@ const fillGrid = () => {
 
   const remainderBlock = (minutesPassed % 10) * 10;
   const lastUncoloredGridItem = document.querySelector('.grid-item:not(.bg-black)');
-  lastUncoloredGridItem.style = `background: linear-gradient(to right, #212426 ${remainderBlock}%, transparent 0%)`;
+  lastUncoloredGridItem.style = `background: linear-gradient(to right, #2d3134 ${remainderBlock}%, transparent 0%)`;
 }
 
 // Abandon hope all ye who enter here

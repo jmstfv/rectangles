@@ -15,7 +15,7 @@ html {
 
 body {
   background-color: #fdf5e6;
-  color: #212426;
+  color: #2d3134;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   font-size: 1.8rem;
   font-weight: 400;
@@ -81,7 +81,7 @@ ul {
 .items-center { align-items: center !important; }
 .justify-around { justify-content: space-around !important; }
 
-.bg-black { background-color: #212426 !important; }
+.bg-black { background-color: #2d3134 !important; }
 
 .bg-light-blue { background-color: #b4d8fd !important; }
 
