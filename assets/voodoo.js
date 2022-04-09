@@ -35,6 +35,10 @@ const fillGrid = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector("#js-toggle-full-screen").addEventListener("click", () => {
+    document.querySelector(".text-container").hidden = true;
+  })
+
   document.querySelectorAll('.js-hover').forEach(element => {
     const rectangles = Number(element.dataset.rectangles);
 

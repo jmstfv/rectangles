@@ -35,7 +35,7 @@ body {
 
 a {
   color: #6878a3;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 h1 {
@@ -91,7 +91,9 @@ ul {
 
 .mb-0 { margin: 0 !important; }
 .m-1 { margin: 1rem !important; }
+.mt-1 { margin-top: 1rem !important; }
 
+.p-1 { padding: 1rem; }
 .p-2 { padding: 2rem; }
 
 .border-b-3 { border-bottom: 0.3rem solid !important; }
