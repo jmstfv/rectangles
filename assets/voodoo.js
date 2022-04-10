@@ -34,11 +34,19 @@ const fillGrid = () => {
   lastUncoloredGridItem.style = `background: linear-gradient(to right, var(--green) ${remainderBlock}%, transparent 0%)`;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector("#js-toggle-full-screen").addEventListener("click", () => {
-    document.querySelector(".text-container").hidden = true;
-  })
+const enableFullScreen = () => {
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
 
+  if (params.full_screen === "true") {
+    document.querySelector(".text-container").hidden = true;
+  } else {
+    document.querySelector(".text-container").hidden = false;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.js-hover').forEach(element => {
     const rectangles = Number(element.dataset.rectangles);
 
@@ -73,6 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   createGrid(12, 12, document.querySelector('.grid-container'));
 
+
+  enableFullScreen();
   fillGrid();
   setInterval(fillGrid, 4000);
 });
