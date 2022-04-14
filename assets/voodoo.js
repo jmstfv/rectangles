@@ -55,8 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (index + 1 <= rectangles) {
           element.classList.remove('bg-time-passed');
           element.classList.add('bg-time-selected');
-        } else if (index + 1 == Math.ceil(rectangles)) {
-          element.style = `background: linear-gradient(to right, var(--blue) ${rectangles * 100}%, transparent 0%)`
         }
       });
     });
@@ -80,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   createGrid(12, 12, document.querySelector('.grid-container'));
-
 
   enableFullScreen();
   fillGrid();
