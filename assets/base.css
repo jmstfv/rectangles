@@ -89,6 +89,8 @@ ul {
 
 .text-center { text-align: center; }
 
+.cursor-crosshair { cursor: crosshair; }
+
 .mb-0 { margin: 0 !important; }
 .m-1 { margin: 1rem !important; }
 .mt-1 { margin-top: 1rem !important; }
