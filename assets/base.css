@@ -99,3 +99,8 @@ ul {
 .p-2 { padding: 2rem; }
 
 .border-b-3 { border-bottom: 0.3rem solid !important; }
+
+.last-grid.bg-time-selected {
+  background: transparent !important;
+  background-color: var(--blue) !important;
+}
