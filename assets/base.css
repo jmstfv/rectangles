@@ -79,7 +79,10 @@ ul {
 /* homegrown functional CSS framework */
 
 .flex { display: flex !important; }
-.flex-wrap { flex-wrap: wrap !important; }
+.flex-wrap { flex-wrap: wrap-reverse; }
+
+div.flex-wrap { flex-wrap: nowrap; }
+
 .items-center { align-items: center !important; }
 .justify-around { justify-content: space-around !important; }
 
