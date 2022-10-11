@@ -4,6 +4,8 @@
   --black: #2d3134;
   --gray: #a9aab1;
   --beige: #fdf5e6;
+  --start: 0s;
+  --fill: var(--green);
 }
 
 *,
@@ -74,6 +76,20 @@ ul {
   height: 4.5rem;
   width: 4.6rem;
   transition: all .5s ease-in;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-item span {
+  background-color: var(--fill);
+  transition: background-color .5s ease-in;
+  position: absolute;
+  inset: 0px;
+
+  animation-duration: 86400s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: var(--start);
 }
 
 /* homegrown functional CSS framework */
@@ -86,9 +102,12 @@ div.flex-wrap { flex-wrap: nowrap; }
 .items-center { align-items: center !important; }
 .justify-around { justify-content: space-around !important; }
 
-.bg-time-passed { background-color: var(--green) !important; }
+.bg-time-passed { background-color: var(--green); }
 
-.bg-time-selected { background-color: var(--blue) !important; }
+.bg-time-selected {
+  --fill: var(--blue);
+  background-color: var(--blue);
+}
 
 .text-center { text-align: center; }
 
@@ -102,8 +121,3 @@ div.flex-wrap { flex-wrap: nowrap; }
 .p-2 { padding: 2rem; }
 
 .border-b-3 { border-bottom: 0.3rem solid !important; }
-
-.last-grid.bg-time-selected {
-  background: transparent !important;
-  background-color: var(--blue) !important;
-}
