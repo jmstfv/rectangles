@@ -92,7 +92,7 @@ div.flex-wrap { flex-wrap: nowrap; }
 
 .text-center { text-align: center; }
 
-.cursor-crosshair { cursor: crosshair; }
+.cursor-pointer { cursor: pointer; }
 
 .mb-0 { margin: 0 !important; }
 .m-1 { margin: 1rem !important; }

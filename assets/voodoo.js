@@ -60,6 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    element.addEventListener('click', () => {
+      document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
+        if (index + 1 <= rectangles) {
+          element.classList.remove('bg-time-passed');
+          element.classList.add('bg-time-selected');
+        }
+      });
+    });
+
     element.addEventListener('mouseleave', () => {
       const minutesPassed = minutesSinceMidnight();
       const fullBlocks = Math.floor(minutesPassed / 10);
