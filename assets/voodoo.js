@@ -1,10 +1,10 @@
 'use strict';
 
-const createGrid = (rows, cols, container) => {
-  for (let i = 0; i < (rows * cols); i++) {
+const createGrid = () => {
+  for (let i = 0; i < (12 * 12); i++) {
     let gridItem = document.createElement('div');
     gridItem.classList.add('grid-item');
-    container.appendChild(gridItem);
+    document.querySelector('.grid-container').appendChild(gridItem);
   };
 };
 
@@ -38,35 +38,29 @@ const fillGrid = () => {
 }
 
 const enableFullScreen = () => {
-  const params = new URLSearchParams(window.location.search);
-
-  if (params.get("full_screen") === "true") {
-    document.querySelector(".text-container").hidden = true;
-  } else {
-    document.querySelector(".text-container").hidden = false;
-  }
+  const isFullScreen = new URLSearchParams(window.location.search).get("full_screen") === "true";
+  document.querySelector(".text-container").hidden = isFullScreen;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const updateGridItems = (rectangles, addSelected, addPassed) => {
+    document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
+      if (index + 1 <= rectangles) {
+        element.classList.toggle('bg-time-selected', addSelected);
+        element.classList.toggle('bg-time-passed', addPassed);
+      }
+    });
+  };
+
   document.querySelectorAll('.js-hover').forEach(element => {
     const rectangles = Number(element.dataset.rectangles);
 
     element.addEventListener('mouseenter', () => {
-      document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
-        if (index + 1 <= rectangles) {
-          element.classList.remove('bg-time-passed');
-          element.classList.add('bg-time-selected');
-        }
-      });
+      updateGridItems(rectangles, true, false);
     });
 
     element.addEventListener('click', () => {
-      document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
-        if (index + 1 <= rectangles) {
-          element.classList.remove('bg-time-passed');
-          element.classList.add('bg-time-selected');
-        }
-      });
+      updateGridItems(rectangles, true, false);
     });
 
     element.addEventListener('mouseleave', () => {
@@ -75,11 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
         if (index + 1 <= fullBlocks) {
-          element.style = "background: transparent"
-          element.classList.add('bg-time-passed');
-          element.classList.remove('bg-time-selected');
-        }
-        else if (index + 1 > fullBlocks) {
+          element.style = "background: transparent";
+          updateGridItems(rectangles, false, true);
+        } else {
           element.classList.remove('bg-time-selected');
           element.classList.remove('bg-time-passed');
         }
@@ -87,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  createGrid(12, 12, document.querySelector('.grid-container'));
+  createGrid();
 
   enableFullScreen();
   fillGrid();
