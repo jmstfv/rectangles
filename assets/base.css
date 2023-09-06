@@ -1,5 +1,4 @@
 :root {
-  --blue: #a9d2ef;
   --green: #cbdfbd;
   --black: #212426;
   --gray: #a9aab1;
@@ -100,6 +99,8 @@ div.flex-wrap { flex-wrap: nowrap; }
 
 .font-medium { font-weight: 500; }
 
+.text-black { color: var(--black); }
+
 .mb-0 { margin: 0 !important; }
 .m-1 { margin: 1rem !important; }
 .mt-1 { margin-top: 1rem !important; }
@@ -108,4 +109,4 @@ div.flex-wrap { flex-wrap: nowrap; }
 .p-2 { padding: 2rem; }
 
 .border-b-3 { border-bottom: 0.3rem solid !important; }
-.border-2 { border: 2px solid black }
+.border-2 { border: 2px solid var(--black); }
