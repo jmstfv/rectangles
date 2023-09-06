@@ -17,6 +17,36 @@
   <meta name="twitter:description" content="Visualize your day as 144 rectangles, where each rectangle represents 10 minutes.">
   <meta name="twitter:title" content="Rectangles">
   <script data-goatcounter="https://gc.rectangles.app/count" async src="//gc.rectangles.app/count.js"></script>
+
+  <style>
+    #modal-outer.overlay::before {
+      content: " ";
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    #modal-inner {
+      z-index: 200;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 360px;
+      overflow: auto;
+      padding: 10px 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #modal-outer.overlay #modal-inner {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <main class="flex flex-wrap justify-around p-2">
@@ -36,15 +66,7 @@
         <div class="grid-item m-1"></div>
         <p>Time that you still have left today</p>
       </div>
-      <div class="border-b-3">
-        <p>To put it into a perspective (hover or click):</p>
-        <ul>
-          <li class="m-1 js-hover cursor-pointer" title="30 rectangles - 5 hours" data-rectangles="30">Average psilocybin mushroom trip</li>
-          <li class="m-1 js-hover cursor-pointer" title="45 rectangles - 7.5 hours" data-rectangles="45">A good night's sleep for adults</li>
-          <li class="m-1 js-hover cursor-pointer" title="48 rectangles - 8 hours" data-rectangles="48">Average workday</li>
-          <li class="m-1 js-hover cursor-pointer" title="96 rectangles - 16 hours" data-rectangles="96">Intermittent fasting (16/8)</li>
-        </ul>
-      </div>
+
       <section class="text-center p-1 mt-1">
         <a href="?full_screen=true" title="Toggle full screen" class="m-1">
           <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 3v6h-2V6l-3 4-2-2 4-3h-3V3zM3 3v6h2V6l3 4 2-2-4-3h3V3zm18 18v-6h-2v3l-3-4-2 2 4 3h-3v2zM9 21v-2H6l4-3-2-2-3 4v-3H3v6z"/></svg></a>
@@ -54,6 +76,29 @@
         <a href="https://twitter.com/jmstfv" title="That's me!" target="_blank" rel="noopener" class="m-1">
           <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path d="M29.2 8a11.2 11.2 0 0 1-3.1.7 5.8 5.8 0 0 0 2.3-2.9A11.1 11.1 0 0 1 25 7.1a5 5 0 0 0-3.8-1.7 5.3 5.3 0 0 0-5.5 5.3 3.7 3.7 0 0 0 .2 1.2A14.5 14.5 0 0 1 5 6.5 4.2 4.2 0 0 0 4.2 9a5.5 5.5 0 0 0 2.4 4.5 7.3 7.3 0 0 1-2.4-.8v.2a5 5 0 0 0 4.1 5.2 5 5 0 0 1-1.4.1 3 3 0 0 1-1.1-.1 5.3 5.3 0 0 0 5 3.7A11 11 0 0 1 4 24a4.5 4.5 0 0 1-1.2-.1 15.8 15.8 0 0 0 9.4 2.6c9.9 0 14.4-8.2 14.4-15.2v-.7a10.4 10.4 0 0 0 2.6-2.8Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+      </section>
+
+      <section>
+        <button id="js-modal-open" class="w-full p-1 mt-1 border-2 rounded text-sm font-medium bg-transparent">Feedback</button>
+
+        <div id="modal-outer" role="dialog" aria-modal="true" tabindex="-1">
+          <div id="modal-inner" class="rounded hidden">
+            <form name="contact" method="POST" netlify>
+              <div>
+                <label>Your Email (optional): <input type="email" name="email" class="w-full"></label>
+              </div>
+
+              <div>
+                <label>Message: <textarea name="message" rows="7" class="w-full"></textarea></label>
+              </div>
+
+              <div>
+                <button class="w-full" type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
       </section>
     </section>
   </main>

@@ -43,40 +43,24 @@ const enableFullScreen = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const updateGridItems = (rectangles, addSelected, addPassed) => {
-    document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
-      if (index + 1 <= rectangles) {
-        element.classList.toggle('bg-time-selected', addSelected);
-        element.classList.toggle('bg-time-passed', addPassed);
-      }
-    });
+  const modalOuter = document.querySelector("#modal-outer");
+  const modalInner  = document.querySelector("#modal-inner");
+
+  document.querySelector("#js-modal-open").addEventListener("click", () => {
+    modalOuter.classList.add("overlay");
+    document.querySelector("#feedback_message").focus();
+  });
+
+  const close = () => {
+    modalOuter.classList.remove("overlay");
   };
 
-  document.querySelectorAll('.js-hover').forEach(element => {
-    const rectangles = Number(element.dataset.rectangles);
+  modalOuter.addEventListener("click", event => {
+    if (event.target === modalOuter) close();
+  });
 
-    element.addEventListener('mouseenter', () => {
-      updateGridItems(rectangles, true, false);
-    });
-
-    element.addEventListener('click', () => {
-      updateGridItems(rectangles, true, false);
-    });
-
-    element.addEventListener('mouseleave', () => {
-      const minutesPassed = minutesSinceMidnight();
-      const fullBlocks = Math.floor(minutesPassed / 10);
-
-      document.querySelectorAll('.grid-container .grid-item').forEach((element, index) => {
-        if (index + 1 <= fullBlocks) {
-          element.style = "background: transparent";
-          updateGridItems(rectangles, false, true);
-        } else {
-          element.classList.remove('bg-time-selected');
-          element.classList.remove('bg-time-passed');
-        }
-      });
-    });
+  window.addEventListener("keydown", event => {
+    if (event.key === 'Escape') close();
   });
 
   createGrid();
@@ -84,4 +68,5 @@ document.addEventListener('DOMContentLoaded', () => {
   enableFullScreen();
   fillGrid();
   setInterval(fillGrid, 4000);
+
 });

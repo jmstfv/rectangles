@@ -78,6 +78,8 @@ ul {
 
 /* homegrown functional CSS framework */
 
+.w-full { width: 100%; }
+
 .flex { display: flex !important; }
 .flex-wrap { flex-wrap: wrap-reverse; }
 
@@ -88,11 +90,15 @@ div.flex-wrap { flex-wrap: nowrap; }
 
 .bg-time-passed { background-color: var(--green) !important; }
 
-.bg-time-selected { background-color: var(--blue) !important; }
-
 .text-center { text-align: center; }
 
-.cursor-pointer { cursor: pointer; }
+.hidden { display: none; }
+
+.rounded { border-radius: 0.25rem; }
+
+.bg-transparent { background-color: transparent; }
+
+.font-medium { font-weight: 500; }
 
 .mb-0 { margin: 0 !important; }
 .m-1 { margin: 1rem !important; }
@@ -102,8 +108,4 @@ div.flex-wrap { flex-wrap: nowrap; }
 .p-2 { padding: 2rem; }
 
 .border-b-3 { border-bottom: 0.3rem solid !important; }
-
-.last-grid.bg-time-selected {
-  background: transparent !important;
-  background-color: var(--blue) !important;
-}
+.border-2 { border: 2px solid black }
