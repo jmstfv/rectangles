@@ -42,7 +42,17 @@ const enableFullScreen = () => {
   document.querySelector(".text-container").hidden = isFullScreen;
 }
 
+const setFullScreen = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  urlParams.set("full_screen", "true");
+  window.location.search = urlParams;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener("keydown", event => {
+    if (event.key === "f" || event.key === "F") setFullScreen();
+  });
+
   const modalOuter = document.querySelector("#modal-outer");
   const modalInner  = document.querySelector("#modal-inner");
 
