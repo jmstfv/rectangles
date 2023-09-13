@@ -50,7 +50,7 @@ const setFullScreen = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener("keydown", event => {
-    if (event.key === "f" || event.key === "F") setFullScreen();
+    if ((event.metaKey || event.ctrlKey) && (event.key == "E" || event.key == "e")) setFullScreen();
   });
 
   const modalOuter = document.querySelector("#modal-outer");
