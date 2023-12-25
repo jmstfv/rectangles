@@ -17,36 +17,6 @@
   <meta name="twitter:description" content="Visualize your day as 144 rectangles, where each rectangle represents 10 minutes.">
   <meta name="twitter:title" content="Rectangles">
   <script data-goatcounter="https://gc.rectangles.app/count" async src="//gc.rectangles.app/count.js"></script>
-
-  <style>
-    #modal-outer.overlay::before {
-      content: " ";
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      z-index: 100;
-      top: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.7);
-    }
-
-    #modal-inner {
-      z-index: 200;
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 360px;
-      overflow: auto;
-      padding: 10px 20px;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-
-    #modal-outer.overlay #modal-inner {
-      display: block;
-    }
-  </style>
 </head>
 <body>
   <main class="flex flex-wrap justify-around p-2">
@@ -76,25 +46,7 @@
           About
         </a>
         &#x25AA;
-        <a id="js-modal-open" href="#" title="I care" class="m-1">Feedback</a>
-
-        <div id="modal-outer" role="dialog" aria-modal="true" tabindex="-1">
-          <div id="modal-inner" class="rounded hidden">
-            <form name="contact" method="POST" netlify>
-              <div>
-                <label>Your Email (optional): <input type="email" name="email" class="w-full"></label>
-              </div>
-
-              <div>
-                <label>Message: <textarea name="message" rows="7" class="w-full"></textarea></label>
-              </div>
-
-              <div>
-                <button class="w-full p-1 mt-1 border-2 rounded text-sm font-medium bg-transparent text-black" type="submit">Send</button>
-              </div>
-            </form>
-          </div>
-        </div>
+        <a href="mailto:hello@rectangles.app" title="I care" class="m-1">Feedback</a>
       </section>
 
       <p class="text-center">&copy; Built by <a href="https://twitter.com/jmstfv">@jmstfv</a></p>

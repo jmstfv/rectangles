@@ -53,30 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if ((event.metaKey || event.ctrlKey) && (event.key == "E" || event.key == "e")) setFullScreen();
   });
 
-  const modalOuter = document.querySelector("#modal-outer");
-  const modalInner  = document.querySelector("#modal-inner");
-
-  document.querySelector("#js-modal-open").addEventListener("click", () => {
-    modalOuter.classList.add("overlay");
-    document.querySelector("#feedback_message").focus();
-  });
-
-  const close = () => {
-    modalOuter.classList.remove("overlay");
-  };
-
-  modalOuter.addEventListener("click", event => {
-    if (event.target === modalOuter) close();
-  });
-
-  window.addEventListener("keydown", event => {
-    if (event.key === 'Escape') close();
-  });
-
   createGrid();
 
   enableFullScreen();
   fillGrid();
   setInterval(fillGrid, 4000);
-
 });
