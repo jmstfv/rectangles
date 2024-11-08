@@ -49,6 +49,11 @@ h1 {
   letter-spacing: -.025em;
 }
 
+h2 {
+  font-weight: 800;
+  letter-spacing: -.025em;
+}
+
 ol,
 ul {
   list-style-position: inside;
